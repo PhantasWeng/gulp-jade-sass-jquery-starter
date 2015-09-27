@@ -1,1 +1,1 @@
-# gulp-jade-sass-starter
+# gulp-jade-sass-jquery-starter

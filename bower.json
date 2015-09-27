@@ -1,0 +1,23 @@
+{
+  "name": "gulp-jade-sass-jquery-starter",
+  "version": "1.0.0",
+  "homepage": "https://github.com/NoahYarian/gulp-jade-sass-jquery-starter",
+  "authors": [
+    "Noah Yarian <noah.yarian@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "~2.1.4"
+  }
+}
