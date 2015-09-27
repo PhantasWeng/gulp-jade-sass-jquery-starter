@@ -5,11 +5,7 @@
   "authors": [
     "Noah Yarian <noah.yarian@gmail.com>"
   ],
-  "description": "",
-  "main": "",
-  "moduleType": [],
   "license": "MIT",
-  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
@@ -17,7 +13,7 @@
     "test",
     "tests"
   ],
-  "devDependencies": {
+  "dependencies": {
     "jquery": "~2.1.4"
   }
 }

@@ -44,7 +44,7 @@ gulp.task('js', function () {
 
 gulp.task('bower', function () {
   // var filterCSS = $.filter('**/*.css');
-  // var filterJS = $.filter('**/*.js');
+  var filterJS = $.filter('**/*.js');
   var overrides = {
     jquery: {
       main: [
@@ -59,7 +59,7 @@ gulp.task('bower', function () {
   //   .pipe(gulp.dest('public/lib'));
   gulp
     .src($.mainBowerFiles({overrides: overrides, debugging: true}))
-    // .pipe(filterJS)
+    .pipe(filterJS)
     .pipe($.concat('build.js'))
     .pipe(gulp.dest('public/lib'));
 });
