@@ -25,8 +25,7 @@ gulp.task('jade', function () {
     .pipe($.jade({
       pretty: true
     }))
-    .pipe(gulp.dest('public'))
-    .pipe($.livereload());
+    .pipe(gulp.dest('public'));
 });
 
 gulp.task('sass', function () {
@@ -34,15 +33,13 @@ gulp.task('sass', function () {
     .src('src/main.sass')
     .pipe($.sass()
       .on('error', $.sass.logError))
-    .pipe(gulp.dest('public'))
-  .pipe($.livereload());
+    .pipe(gulp.dest('public'));
 });
 
 gulp.task('js', function () {
   gulp.src('src/**/*.js')
     .pipe($.babel())
-    .pipe(gulp.dest('public'))
-    .pipe($.livereload());
+    .pipe(gulp.dest('public'));
 });
 
 gulp.task('bower', function () {
@@ -80,14 +77,7 @@ gulp.task('copy', function () {
     .pipe(gulp.dest('public/assets'));
 });
 
-gulp.task('watch', function () {
-  $.livereload.listen();
-  gulp.watch('src/**/*.jade', ['jade']);
-  gulp.watch('src/**/*.sass', ['sass']);
-  gulp.watch('src/**/*.js', ['js']);
-});
-
-gulp.task('build:dev', ['jade', 'sass', 'js', 'bower', 'copy', 'watch']);
+gulp.task('build:dev', ['jade', 'sass', 'js', 'bower', 'copy']);
 
 gulp.task('serve', ['build:dev'], function () {
   gulp.start('browser-sync');
