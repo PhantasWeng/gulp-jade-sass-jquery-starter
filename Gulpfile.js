@@ -30,7 +30,7 @@ gulp.task('jade', function () {
 
 gulp.task('sass', function () {
   gulp
-    .src('src/main.scss')
+    .src('src/main.sass')
     .pipe($.sass()
       .on('error', $.sass.logError))
     .pipe(gulp.dest('public'));
@@ -82,7 +82,7 @@ gulp.task('build:dev', ['jade', 'sass', 'js', 'bower', 'copy']);
 gulp.task('serve', ['build:dev'], function () {
   gulp.start('browser-sync');
   gulp.watch(['src/*.jade'], ['jade']).on('change', $.browserSync.reload);
-  gulp.watch(['src/**/*.scss'], ['sass']).on('change', $.browserSync.reload);
+  gulp.watch(['src/**/*.sass'], ['sass']).on('change', $.browserSync.reload);
   gulp.watch(['src/**/*.js'], ['js']).on('change', $.browserSync.reload);
   gulp.watch(['src/assets/*.*'], ['copy']).on('change', $.browserSync.reload);
 });
