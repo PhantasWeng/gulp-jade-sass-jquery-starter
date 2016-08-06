@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NoahYarian/gulp-jade-sass-jquery-starter.git"
+    "url": "git+https://github.com/PhantasWeng/gulp-jade-sass-jquery-starter"
   },
-  "author": "Noah Yarian <Noah.Yarian@gmail.com>",
+  "author": "Phantas Weng <phantas@phantas.tw>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/NoahYarian/gulp-jade-sass-jquery-starter/issues"
+    "url": "https://github.com/PhantasWeng/gulp-jade-sass-jquery-starter/issues"
   },
-  "homepage": "https://github.com/NoahYarian/gulp-jade-sass-jquery-starter#readme",
+  "homepage": "https://github.com/PhantasWeng/gulp-jade-sass-jquery-starter#readme",
   "devDependencies": {
     "browser-sync": "^2.9.6",
     "del": "^2.0.2",
