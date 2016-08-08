@@ -1,0 +1,111 @@
+//Font-Face Mixxin
+@mixin googlefont($fonts...) {
+  $url: "//fonts.googleapis.com/css?family=";
+  $nb: 0;
+
+  @each $font-name in $fonts {
+    $nb: $nb + 1;
+    $nb-word: 0;
+
+    @each $word in $font-name {
+      $nb-word: $nb-word + 1;
+      $url: $url + $word;
+
+      @if $nb-word < length($font-name) {
+        $url: $url + "+";
+      }
+    }
+
+    @if $nb < length($fonts) {
+       $url: $url + "|";
+    }
+  }
+
+  @import url(#{$url});
+}
+
+@mixin sticky-footer($footer-height, $root-selector: unquote("#root"), $root-footer-selector: unquote("#root_footer"), $footer-selector: unquote("#footer")) {
+  html, body {
+    height: 100%;
+  }
+  #{$root-selector} {
+    clear: both;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin-bottom: -$footer-height;
+    #{$root-footer-selector} {
+      height: $footer-height;
+    }
+  }
+  #{$footer-selector} {
+    clear: both;
+    position: relative;
+    height: auto;
+  }
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin opacity($opacity) {
+  @if $opacity == 1 {
+    filter: unquote("progid:DXImageTransform.Microsoft.Alpha(enabled=false)");
+  }
+  @else {
+    filter: unquote("progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($opacity * 100)})");
+  }
+  opacity: $opacity;
+}
+@mixin transition($transition-property, $transition-time: 1s, $method: ease) {
+  -webkit-transition: $transition-property $transition-time $method;
+  -moz-transition: $transition-property $transition-time $method;
+  -ms-transition: $transition-property $transition-time $method;
+  -o-transition: $transition-property $transition-time $method;
+  transition: $transition-property $transition-time $method;
+}
+
+@mixin transform($val) {
+  -webkit-transform: $val;
+  -moz-transform: $val;
+  -ms-transform: $val;
+  transform: $val;
+}
+
+@mixin centerMe($pos: both) {
+  position: absolute;
+  @if $pos == both {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  @else if $pos == top {
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+  @else if $pos == left {
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+  @else if $pos == right {
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+  }
+  @else if $pos == bottom {
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  background-clip: padding-box;  /* stops bg color from leaking outside the border: */
+}
