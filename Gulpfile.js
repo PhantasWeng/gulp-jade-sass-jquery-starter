@@ -30,10 +30,10 @@ gulp.task('jade', function () {
 
 gulp.task('sass', function () {
   gulp
-    .src('src/main.sass')
+    .src('src/**/*.sass')
     .pipe($.sass()
       .on('error', $.sass.logError))
-    .pipe(gulp.dest('public'));
+    .pipe(gulp.dest('public/stylesheets'));
 });
 
 gulp.task('js', function () {
