@@ -1,5 +1,11 @@
 # gulp-jade-sass-jquery-starter
 
+下載
+
+```
+git clone https://github.com/PhantasWeng/gulp-jade-sass-jquery-starter.git
+```
+
 #環境
 - npm install
 - bower install
