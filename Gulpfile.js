@@ -43,20 +43,25 @@ gulp.task('js', function () {
 });
 
 gulp.task('bower', function () {
-  // var filterCSS = $.filter('**/*.css');
+  var filterCSS = $.filter('**/*.css');
   var filterJS = $.filter('**/*.js');
   var overrides = {
     jquery: {
       main: [
         './dist/jquery.min.js'
       ]
+    },
+    'normalize-css': {
+      main: [
+        './normalize.css'
+      ]
     }
   }
-  // gulp
-  //   .src($.mainBowerFiles({overrides: overrides, debugging: true}))
-  //   .pipe(filterCSS)
-  //   .pipe($.concat('build.css'))
-  //   .pipe(gulp.dest('public/lib'));
+  gulp
+    .src($.mainBowerFiles({overrides: overrides, debugging: true}))
+    .pipe(filterCSS)
+    .pipe($.concat('build.css'))
+    .pipe(gulp.dest('public/lib'));
   gulp
     .src($.mainBowerFiles({overrides: overrides, debugging: true}))
     .pipe(filterJS)
@@ -84,7 +89,7 @@ gulp.task('serve', ['build:dev'], function () {
   gulp.watch(['src/**/*.jade'], ['jade']).on('change', $.browserSync.reload);
   gulp.watch(['src/**/*.sass'], ['sass']).on('change', $.browserSync.reload);
   gulp.watch(['src/**/*.js'], ['js']).on('change', $.browserSync.reload);
-  gulp.watch(['src/assets/**/*.*'], ['copy']).on('change', $.browserSync.reload);
+  gulp.watch(['src/assets/*.*'], ['copy']).on('change', $.browserSync.reload);
 });
 
 gulp.task('default', ['clean'], function () {
