@@ -46,6 +46,11 @@ gulp.task('bower', function () {
   var filterCSS = $.filter('**/*.css');
   var filterJS = $.filter('**/*.js');
   var overrides = {
+    bootstrap: {
+      main: [
+        './dist/css/bootstrap.css'
+      ]
+    },
     jquery: {
       main: [
         './dist/jquery.min.js'
