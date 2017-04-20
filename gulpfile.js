@@ -52,6 +52,11 @@ gulp.task('bower', function () {
   var filterCSS = $.filter('**/*.css');
   var filterJS = $.filter('**/*.js');
   var overrides = {
+    bootstrap: {
+      main: [
+        './dist/css/bootstrap.css'
+      ]
+    },
     jquery: {
       main: [
         './dist/jquery.min.js'
@@ -84,8 +89,8 @@ gulp.task('browser-sync', function() {
 });
 
 gulp.task('copy', function () {
-  gulp.src(['src/assets/**/*.*'])
-    .pipe(gulp.dest('public/assets'));
+  gulp.src(['src/images/**/*.*'])
+    .pipe(gulp.dest('public/images'));
 });
 
 gulp.task('build:dev', ['html', 'jade', 'sass', 'js', 'bower', 'copy']);
@@ -96,7 +101,7 @@ gulp.task('serve', ['build:dev'], function () {
   gulp.watch(['src/**/*.jade'], ['jade']).on('change', $.browserSync.reload);
   gulp.watch(['src/**/*.sass'], ['sass']).on('change', $.browserSync.reload);
   gulp.watch(['src/**/*.js'], ['js']).on('change', $.browserSync.reload);
-  gulp.watch(['src/assets/*.*'], ['copy']).on('change', $.browserSync.reload);
+  gulp.watch(['src/images/*.*'], ['copy']).on('change', $.browserSync.reload);
 });
 
 gulp.task('default', ['clean'], function () {
