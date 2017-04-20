@@ -19,6 +19,12 @@ gulp.task('clean', function (cb) {
     });
 });
 
+gulp.task('html', function () {
+  gulp
+    .src('src/**/*.html')
+    .pipe(gulp.dest('public'));
+});
+
 gulp.task('jade', function () {
   gulp
     .src(['src/**/*.jade', '!src/**/_*.jade'])
@@ -82,10 +88,11 @@ gulp.task('copy', function () {
     .pipe(gulp.dest('public/assets'));
 });
 
-gulp.task('build:dev', ['jade', 'sass', 'js', 'bower', 'copy']);
+gulp.task('build:dev', ['html', 'jade', 'sass', 'js', 'bower', 'copy']);
 
 gulp.task('serve', ['build:dev'], function () {
   gulp.start('browser-sync');
+  gulp.watch(['src/**/*.html'], ['html']).on('change', $.browserSync.reload);
   gulp.watch(['src/**/*.jade'], ['jade']).on('change', $.browserSync.reload);
   gulp.watch(['src/**/*.sass'], ['sass']).on('change', $.browserSync.reload);
   gulp.watch(['src/**/*.js'], ['js']).on('change', $.browserSync.reload);
