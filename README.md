@@ -12,7 +12,7 @@
 #下載
 
 ```
-git clone https://github.com/PhantasWeng/gulp-jade-sass-jquery-starter.git
+git clone https://github.com/PhantasWeng/ph-web-starter-kit.git
 ```
 
 #環境
