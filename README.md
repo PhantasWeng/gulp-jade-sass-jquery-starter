@@ -1,6 +1,15 @@
-# gulp-jade-sass-jquery-starter
+# ph-web-starter-kit
 
-下載
+# 引用
+- gulp
+- jade / pug
+- sass
+- jQuery
+- Bootstrap
+
+
+
+#下載
 
 ```
 git clone https://github.com/PhantasWeng/gulp-jade-sass-jquery-starter.git
